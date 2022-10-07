@@ -1,0 +1,47 @@
+@import "../../MainStyles/variables.scss";
+
+.xx-small {
+  width: 120px;
+  height: 24px;
+  font-size: $fontSize_10;
+  border-radius: 6px;
+  margin: 8px 0;
+  border: none;
+  text-transform: capitalize;
+}
+.xx-small:hover {
+  transition: all 1s ease-in;
+  background-color: $bgc-yemak-color;
+}
+.btn-very-small {
+  width: 150px;
+  height: 42px;
+  font-size: $fontSize_16;
+  border-radius: 6px;
+  margin: 8px 8px;
+  text-transform: capitalize;
+}
+.btn-double {
+  width: 230px;
+  height: 43px;
+  font-size: $fontSize_16;
+  background-color: $bgc-yemak-color;
+  border-radius: 6px;
+  margin: 8px;
+  text-transform: capitalize;
+}
+.btn-small {
+  width: 300px;
+  height: 30px;
+  border-radius: 6px;
+}
+.btn-medium {
+  width: 400px;
+  height: 35px;
+  border-radius: 6px;
+}
+.btn-large {
+  width: 500px;
+  height: 40px;
+  border-radius: 6px;
+}

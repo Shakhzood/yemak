@@ -1,0 +1,25 @@
+@import "../../MainStyles/variables.scss";
+
+.card {
+  width: 144px;
+  height: 144px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 1rem;
+  background-color: #fff;
+  border: 1px solid #eee;
+
+  .dessert-image {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+  }
+}
+
+.filter-btn-bgc {
+  background-color: $bgc-yemak-color !important;
+  // background-color: yellow !important;
+}

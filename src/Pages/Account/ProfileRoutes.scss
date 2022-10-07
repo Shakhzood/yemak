@@ -1,0 +1,19 @@
+.btn-container {
+  width: 100%;
+  // height: 100px;
+  padding: auto;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  .btn-container {
+    margin: 20px 10px;
+  }
+}
+.input-container {
+  width: 100%;
+  padding: auto;
+  text-align: center;
+}
+.active_btn {
+  background-color: yellow;
+}

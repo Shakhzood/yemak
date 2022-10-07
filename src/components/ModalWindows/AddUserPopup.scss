@@ -1,0 +1,22 @@
+$bgc-dark: rgba(169, 169, 169, 0.285);
+$bgc-dark-hover: rgba(94, 94, 94, 0.285);
+
+.add_user_modal_window {
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 6px;
+}
+
+.input {
+  width: 500px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

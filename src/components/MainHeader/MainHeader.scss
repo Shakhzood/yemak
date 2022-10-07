@@ -1,0 +1,47 @@
+.main-header {
+  width: 100%;
+  max-height: 4.32rem;
+  box-shadow: 0px 1px rgba(69, 69, 69, 0.1);
+  //   border: 1px solid red;
+
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  margin-bottom: 20px;
+  position: sticky;
+  z-index: 98;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  .small-box {
+    width: 80%;
+    padding: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    // border: 2px solid red;
+
+    img {
+      width: 140px;
+      cursor: pointer;
+    }
+
+    .profile-container {
+      width: 15rem;
+      padding: auto;
+      display: flex;
+    }
+    .SearchField {
+      width: 100%;
+      position: relative;
+
+      .focusOnInput {
+        position: fixed;
+        top: 2px;
+        left: 400px;
+        z-index: 101 !important;
+      }
+    }
+  }
+}

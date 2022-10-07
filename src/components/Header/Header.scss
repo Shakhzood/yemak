@@ -1,0 +1,43 @@
+$font-family: "Open Sans", sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  text-transform: capitalize;
+  font-family: $font-family;
+}
+.header {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 50vh;
+  background: url("../../../public/img/yemak_bg.jpg") center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+}
+.header_left_side {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header_right_side {
+  width: 20%;
+  height: 100%;
+  position: relative;
+}
+.left_position {
+  position: absolute;
+  right: 80px;
+  top: 80px;
+  width: max-content;
+}
+.main {
+  width: 80%;
+  height: auto;
+  margin: 40px auto;
+}

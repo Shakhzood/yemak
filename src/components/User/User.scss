@@ -1,0 +1,11 @@
+.user-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .user-icon {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+}

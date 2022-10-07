@@ -1,0 +1,106 @@
+@import "../../MainStyles/variables.scss";
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+
+  .card-inside {
+    width: 80%;
+    padding: 20px;
+    .cards {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 8px;
+      grid-row-gap: 8px;
+      // flex-wrap: wrap;
+    }
+    .Cards_card {
+      width: 20rem;
+      height: 12.5rem;
+      position: relative;
+      top: 8px;
+      left: 8px;
+      padding: 0 1rem;
+      background-color: #ffdd59;
+      box-shadow: 5px 5px 20px rgb(0 0 0 / 15%);
+      border-radius: 8px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      .Cards_firstSection {
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .card-delete-btn {
+          cursor: pointer;
+        }
+      }
+      .Cards_thirdSection {
+        width: 100%;
+        padding: 12px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        font-size: 14px;
+        font-weight: 600;
+        .Cards_cardNumber {
+          font-size: 20px;
+        }
+        .Cards_cardDate {
+          margin: 0 auto;
+        }
+        .credit-card {
+          margin-bottom: 20px;
+        }
+      }
+    }
+    p {
+      font-size: 16px;
+      font-weight: 900;
+    }
+    .card {
+      width: 20rem;
+      height: 12.5rem;
+      background-color: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      cursor: pointer;
+      overflow: hidden;
+      margin: 0.5rem;
+      transition: all 0.5s ease-in-out;
+
+      .box_first_circle {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background-color: #b0b0b0;
+        position: absolute;
+        right: -70px;
+        top: -70px;
+      }
+      .box_second_circle {
+        width: 200px;
+        height: 180px;
+        border-radius: 50%;
+        background-color: rgb(190, 193, 196);
+        position: absolute;
+        left: -0;
+        bottom: -120px;
+        z-index: -1;
+      }
+    }
+    .card:hover {
+      background-color: rgba(0, 0, 0, 0.317);
+    }
+  }
+}

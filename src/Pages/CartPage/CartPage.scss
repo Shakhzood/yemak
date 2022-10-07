@@ -1,0 +1,372 @@
+.parent-container {
+  width: 100%;
+  padding: 5rem;
+  position: relative;
+
+  .container {
+    width: 80%;
+    padding: 2rem;
+    border: 1px solid red;
+
+    .cart_item {
+      img {
+        width: 10rem;
+        // height: 10rem;
+        background-position: center center;
+        background-size: cover;
+      }
+    }
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+hr {
+  margin: 1rem 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.Shopping_cart {
+  width: 100%;
+
+  .container {
+    margin: 0 auto;
+    max-width: 1140px;
+    margin-top: 2rem;
+  }
+
+  .cart_title_header {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  section {
+    margin-bottom: 55px;
+
+    .restoran_title {
+      p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+
+    .shopping_cart_page {
+      width: 100%;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+
+      .delete_icon {
+        width: 38px;
+        height: 34px;
+        // border: 1px solid red;
+        cursor: pointer;
+      }
+
+      .img_cart_boxs {
+        width: 10rem;
+        height: 10rem;
+        overflow: hidden;
+        box-sizing: border-box;
+        border: 1px solid #eee;
+        border-radius: 1rem;
+        margin: 0 1rem;
+
+        img {
+          height: 100%;
+          margin-left: -4rem;
+        }
+      }
+    }
+
+    .cart_header_text {
+      display: flex;
+      flex-direction: column;
+      width: calc(100% - 14rem);
+      justify-content: space-around;
+
+      .cart_childe {
+        p {
+          color: #212529;
+          font-size: 18px;
+          font-weight: 550;
+          line-height: 1.5;
+          margin: 7px 0;
+        }
+      }
+
+      .box_empty {
+        width: 100%;
+        height: 60px;
+        font-size: 14px;
+        color: #b0b0b0;
+      }
+
+      .cart_time {
+        display: flex;
+
+        svg {
+          width: 24px;
+          height: 24px;
+          margin: 0 0.5rem 0 0;
+        }
+      }
+
+      .counter {
+        display: flex;
+        width: 100%;
+        flex-direction: row-reverse;
+
+        p:nth-child(1) {
+          margin-left: 8px;
+          font-size: 18px;
+          font-weight: 600;
+        }
+
+        .counter_box {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          p {
+            font-size: 16px;
+            font-weight: 400;
+            margin: 0;
+          }
+
+          button:nth-child(2) {
+            margin: 0 0.5rem;
+          }
+
+          .btn_plusi {
+            background-color: #ffdd59;
+            margin: 0 8px;
+          }
+
+          button {
+            svg {
+              margin-bottom: 20px;
+            }
+
+            border-radius: 0.3rem;
+            background-color: #eee;
+            width: 2.5rem;
+            height: 1.5rem;
+            font-size: 24px;
+            border: none;
+          }
+        }
+      }
+    }
+  }
+
+  .map_page {
+    h3 {
+      color: #212529;
+      font-size: 20px;
+      margin-bottom: 1rem;
+    }
+
+    img {
+      width: 100%;
+      height: 500px;
+      border-radius: 8px;
+    }
+  }
+
+  .main_cart_page {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3rem 0;
+
+    .childe_box {
+      width: 50%;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #212529;
+
+      a {
+        text-decoration: none;
+        color: #007bff;
+      }
+
+      h2 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .work_time {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      label {
+        position: relative;
+        padding-left: 2rem;
+        margin: 0.5rem 1rem;
+        user-select: none;
+        cursor: pointer;
+        font-size: 14px;
+
+        .cart_checkmark:after {
+          content: "";
+          position: absolute;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+          box-sizing: border-box;
+          padding: 0;
+        }
+
+        input:checked ~ .cart_checkmark {
+          background-color: #ffa801;
+        }
+
+        input:checked ~ .cart_checkmark:after {
+          display: block;
+        }
+
+        .cart_checkmark:after {
+          top: 6px;
+          left: 6px;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #fff;
+        }
+
+        input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+        }
+
+        .cart_checkmark {
+          position: absolute;
+          top: 0.1rem;
+          left: 0;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background-color: #eee;
+        }
+      }
+    }
+  }
+
+  .footer_box {
+    .commit {
+      h2 {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      textarea {
+        width: 100%;
+        height: 6rem;
+        padding: 1rem;
+        margin: 1rem 0;
+        outline: none;
+        font-size: 14px;
+        border-radius: 10px;
+        border: 1px solid #b0b0b0;
+        overflow: auto;
+        resize: vertical;
+        font-style: italic;
+        line-height: inherit;
+      }
+    }
+
+    .table_box {
+      th {
+        background-color: #ffdd59;
+      }
+
+      td,
+      th {
+        padding: 8px;
+        text-align: center;
+        border-bottom: 1px solid #ffcc64;
+      }
+
+      table {
+        width: 100%;
+        margin: 1rem 0;
+        overflow: hidden;
+        border-collapse: collapse;
+        border-radius: 10px 10px 0 0;
+      }
+    }
+
+    .delete_cart_item {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin: 2rem 0;
+      align-items: center;
+
+      .delete_childe_icon {
+        display: flex;
+        align-items: center;
+        width: 48px;
+        height: 48px;
+        justify-content: center;
+        cursor: pointer;
+        margin-bottom: 25px;
+        border-radius: 50%;
+        border: 1px solid #000;
+        transition: opacity 0.5s, box-shadow 0.5s;
+
+        opacity: 0.3;
+
+        svg {
+          width: 34px;
+          height: 34px;
+          font-size: 28px;
+          line-height: 48px;
+        }
+
+        &:hover {
+          cursor: pointer;
+          border: 1px solid #000;
+          opacity: 0.8;
+        }
+      }
+
+      button {
+        background-color: #ffdd59;
+        width: 100%;
+        max-width: 230px;
+        height: 2.5rem;
+        border: none;
+        outline: none !important;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        white-space: nowrap;
+        color: #000;
+        border-radius: 0.375rem;
+        transition: background-color 0.3s;
+        &:hover {
+          background-color: #fbd641;
+        }
+      }
+    }
+  }
+}

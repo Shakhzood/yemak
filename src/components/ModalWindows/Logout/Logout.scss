@@ -1,0 +1,56 @@
+@import "../../../MainStyles/variables.scss";
+
+$bgc-dark: rgba(169, 169, 169, 0.285);
+$bgc-dark-hover: rgba(94, 94, 94, 0.285);
+
+.popUp_Overlay_logout {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.small-container_logout {
+  width: 525px;
+  padding: 10px 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+.container_logout {
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly !important;
+  background-color: #fff;
+  padding: 18px;
+  border-radius: $borderRadius_4;
+  hr {
+    margin: 0;
+  }
+}
+.popUp_Close_logout {
+  width: 35px;
+  height: 35px;
+  background-color: $bgc-dark;
+}
+.popUp_Close_logout:hover {
+  background-color: $bgc-dark-hover;
+  transition: all 0.3s linear;
+}
+.header-container_logout {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  h3 {
+    font-weight: 900;
+  }
+}

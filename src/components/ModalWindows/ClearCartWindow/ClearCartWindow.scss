@@ -1,0 +1,47 @@
+.popUpSize {
+  width: 55%;
+
+  .content {
+    width: 100%;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    cursor: auto;
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+    .contentHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0;
+
+      .popUp_Close-btn {
+        width: 33px;
+        height: 33px;
+        border: 1px solid black;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      .popUp_Close-btn:hover {
+        transition: all 1s ease-in-out;
+        background-color: yellow;
+      }
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: medium;
+    }
+    div .ifUserNotSignIn {
+      display: flex;
+      justify-content: flex-end;
+    }
+    hr {
+      margin: 3px 0;
+    }
+  }
+}

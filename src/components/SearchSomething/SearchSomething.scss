@@ -1,0 +1,14 @@
+.SearchField {
+  position: absolute;
+  width: 100% !important;
+  .focus {
+    position: inherit;
+    z-index: 100;
+  }
+}
+.header_search_content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}

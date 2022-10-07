@@ -1,0 +1,268 @@
+// ASSISTANT CODE HERE
+@import "../../MainStyles/variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.body {
+  width: 100%;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.banner {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1120px;
+
+  position: relative;
+}
+
+.banner-block {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: 8px;
+  background-position: inherit;
+  background-size: cover;
+  display: flex;
+}
+
+.img-background {
+  width: 100%;
+  height: 100%;
+  background-size: 100% auto;
+  background-position: initial;
+  border-radius: 8px;
+}
+
+.img-background::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(rgba(0, 0, 0, 0.7)),
+    to(rgba(0, 0, 0, 0))
+  );
+  background: -webkit-linear-gradient(
+    bottom,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0)
+  );
+  background: -moz-linear-gradient(
+    bottom,
+    rgba(0, 0, 0, 0.7) 0,
+    rgba(0, 0, 0, 0) 100%
+  );
+  background: -o-linear-gradient(
+    bottom,
+    rgba(0, 0, 0, 0.7) 0,
+    rgba(0, 0, 0, 0) 100%
+  );
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0, rgba(0, 0, 0, 0));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a6000000", endColorstr="#00000000", GradientType=0);
+  border-radius: 8px;
+}
+
+.img-contener {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  color: #fff;
+  padding: 3rem;
+  padding-bottom: 1rem;
+  z-index: 10;
+
+  hr {
+    border-top: 1px solid #fff;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 550;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+}
+
+.icon-block {
+  width: 100%;
+  margin-bottom: 30px;
+
+  span {
+    padding: 8px;
+    margin: 10px 0px;
+  }
+}
+.restaurant-block {
+  position: relative;
+  .navbar {
+    width: 100%;
+    height: 58px;
+    background: #fff;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.223);
+    font-weight: 600;
+
+    ul {
+      overflow: auto;
+      display: flex;
+      // align-items: center;
+    }
+
+    li {
+      font-size: 1rem;
+      font-weight: 600;
+      list-style: none;
+      padding: 10px 10px 13px 10px;
+    }
+
+    .active {
+      border-bottom: 3px solid #ffc107;
+      transition: all 0.1s ease-in-out;
+    }
+  }
+
+  .cart_container {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    // border: 1px solid red;
+
+    position: fixed;
+    right: 50px;
+    bottom: 40px;
+    z-index: 100;
+
+    background-color: $bgc-yemak-color;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .cartButton_count {
+      position: absolute;
+      cursor: pointer;
+      top: -8px;
+      right: -8px;
+      width: 28px;
+      height: 28px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      color: #fff;
+      text-align: center;
+      font-size: 16px;
+      line-height: 28px;
+      background-color: red;
+      z-index: 1102;
+    }
+  }
+}
+
+.food_container_wrapper {
+  width: 100%;
+  padding: 0px;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+
+  .food_container {
+    width: 75%;
+    padding: 16px 48px;
+    min-height: 800px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
+  }
+
+  .card_child {
+    width: 500px;
+    height: 180px;
+    border-radius: 8px;
+    margin: 0.8rem;
+    display: flex;
+    border: 1px solid rgba(34, 34, 34, 0);
+    -webkit-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    transition: 0.3s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    box-shadow: 0 2px 18px rgb(0 0 0 / 10%);
+  }
+
+  .food_image {
+    img {
+      width: 12rem;
+      height: 11rem;
+      border-radius: 8px 0 0 8px;
+    }
+  }
+
+  .food_info {
+    width: 300px;
+    padding: 5px 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+
+    .food_title {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .food_info_footer {
+      width: 100%;
+      height: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .shopping_cart {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background-color: #eee;
+    }
+  }
+
+  .card_child:hover {
+    transform: translateY(-7px);
+    cursor: pointer;
+
+    .shopping_cart {
+      background-color: $bgc-yemak-color;
+      transition: all 0.3s ease-in;
+    }
+  }
+}

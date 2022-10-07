@@ -1,0 +1,57 @@
+@import "../../../MainStyles/variables.scss";
+$bgc-btn: #ffdd59;
+
+.popUp_Overlay_verify {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .popUp-container {
+    width: auto;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    cursor: auto;
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+    .header-container-verify {
+      display: flex;
+      justify-content: space-between;
+
+      h3 {
+        font-size: 16px;
+      }
+      .popUp_Close-btn {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      .popUp_Close-btn:hover {
+        border: 1px solid black;
+      }
+    }
+
+    .verify-btn-container {
+      display: flex;
+      flex-direction: column;
+      // border: 1px solid red;
+    }
+    .alert-info {
+      width: 500px;
+    }
+  }
+}

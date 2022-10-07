@@ -1,0 +1,26 @@
+.filter-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  // border: 1px solid red;
+  font-family: "Open Sans", sans-serif;
+  margin: 20px 0;
+  padding: 20px;
+}
+.prev-btn,
+.next-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 230, 106);
+  border: none;
+  //   place-items: center;
+}
+.prev-btn:hover,
+.next-btn:hover {
+  background-color: rgb(255, 213, 4);
+  transition: all 0.5s linear;
+}
