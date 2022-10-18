@@ -7,26 +7,22 @@ import { closeModalfunc } from "../../components/ModalWindows/OverlayWindow/moda
 import "./FoodModal.scss";
 
 const Page = () => {
-  const [selectedOption, setSelectedOption] = useState({});
-  const [kgSelectedOption, setKgSelectedOption] = useState({
-    selectedOption: "",
-  });
-  const [extraSelectedOption, setExtraSelectedOption] = useState({
-    selectedOption: "",
-  });
-  const [dishSelectionOption, setDishSelectedOption] = useState({
-    selectedOption: "",
-  });
-  const [item, setItem] = useState({});
+  // weight
+  const [selectedOption, setSelectedOption] = useState("0,5");
+  const [kg, setKg] = useState({ id: 0, name: "0,5", price: 0 });
 
-  const [kg, setKg] = useState({ price: 0 });
-  const [extraProducts, setExtraProducts] = useState({ price: 0 });
-  const [dish, setDish] = useState({ price: 0 });
+  // extra item to palov
+  const [selectedExtraItem, setSelectedExtraItem] = useState("Ничего");
+  const [extraProductItem, setExtraProductItem] = useState({
+    id: 0,
+    name: "Ничего",
+    price: 0,
+  });
+
+  const [dish, setDish] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
   const [foodIdx, setFoodIdx] = useState(0);
-  const [extraIdx, setExtraIdx] = useState(0);
-  const [extraItemIdx, setExtraItemIdx] = useState(0);
   const { foodInfo, items_count } = useSelector(
     (state) => state.RestaurantReducer
   );
@@ -42,25 +38,34 @@ const Page = () => {
   } = foodInfo;
   const dispatch = useDispatch();
 
-  const inc = (food, item) => {
+  const inc = (food) => {
     const { price: foodPrice = 0 } = food;
-    const { kgPrice = 0 } = kg;
-    const { extraProductPrice = 0 } = extraProducts;
-    const { dishPrice = 0 } = dish;
 
-    console.log(1, foodPrice + kgPrice + extraProductPrice + dishPrice);
+    let totalPrice = kg.hasOwnProperty("price")
+      ? foodPrice + kg.price + extraProductItem
+      : foodPrice;
+
+    setTotalPrice(totalPrice);
+
+    console.log("INCREMENT", food);
 
     dispatch({
       type: "INCREMENT",
-      payload: foodPrice + kgPrice + extraProductPrice + dishPrice,
+      payload: totalPrice, // extraProductItem.price + tarelka.price
     });
   };
 
   const dec = (food) => {
     const { price: foodPrice = 0 } = food;
-    const { price: itemPrice = 0 } = item;
 
-    dispatch({ type: "DECREMENT", payload: foodPrice + itemPrice });
+    // let totalPrice = kg.hasOwnProperty("price")
+    //   ? foodPrice - kg.price
+    //   : foodPrice;
+
+    dispatch({
+      type: "DECREMENT",
+      payload: totalPrice - (foodPrice + kg.price),
+    });
   };
 
   const addItemToCartFun = (food) => {
@@ -73,66 +78,65 @@ const Page = () => {
     dispatch(addItemToCart(newProduct));
   };
 
-  const onValueChange = (event, item, setSelectedOption, categoryId = 0) => {
-    setSelectedOption({
-      selectedOption: event.target.value,
-    });
+  const onValueChange = (event, item, categoryId = 0) => {
+    // dispatch({
+    //   type: "UPDATE_OPTIONS_PRICE",
+    //   payload: originalPrice + kg.price, // extraProductItem.price + tarelka.price
+    // });
+    // console.log("item.price", item);
 
     switch (categoryId) {
-      case 0:
+      case 0: // weight
+        setSelectedOption(event.target.value);
         setKg(item);
+        // console.log(item);
         break;
-      case 1:
-        setExtraProducts(item);
+      case 1: // extra item
+        setSelectedExtraItem(event.target.value);
+        setExtraProductItem(item);
+        // console.log(extraProductItem);
         break;
-      case 2:
-        setDish(item);
-        break;
+      //case 2: // idish
+      // setDish(item.price);
+      //break;
       default:
-        setItem(item);
+      // setItem(item.price);
     }
-    setTotalPrice(originalPrice + kg.price + extraProducts.price + dish.price);
-    console.log(kg.price + extraProducts.price + dish.price);
-    // console.log("totalPrice", totalPrice);
-    dispatch({
-      type: "UPDATE_OPTIONS_PRICE",
-      payload: totalPrice,
-    });
+    setTotalPrice(originalPrice + kg.price + extraProductItem.price);
+    // console.log("item", item, categoryId);
   };
 
-  const DisplayOptions = ({
+  const DisplayWeight = ({
     options,
-    optionIdx,
-    setOptionIdx,
-    selectedOption,
+    selectedOptionItem,
     onValueChange,
     categoryId = 0,
+    name,
   }) => {
+    console.log(selectedOptionItem);
     return (
       <div className="countingPopup">
         <p>{options.name}</p>
-        {/* //options[0].rows */}
         {options.rows.map((item, idx) => {
+          // console.log(item);
+
           return (
             <div key={item.id} className="chack_box">
               <label>
-                <span
+                {/* <span
                   onClick={() => setOptionIdx(idx)}
                   className={`checkMark  ${
                     idx === optionIdx ? "toggle_check" : ""
                   }`}
-                ></span>
+                ></span> */}
                 {item.name}
                 <input
-                  onClick={() => setOptionIdx(idx)}
                   className="optionInput"
                   type="radio"
                   value={item.name}
-                  checked={item.name === selectedOption}
-                  onChange={(e) =>
-                    onValueChange(e, item, setSelectedOption, categoryId)
-                  }
-                  name="product"
+                  checked={item.name === selectedOptionItem}
+                  onChange={(e) => onValueChange(e, item, categoryId)}
+                  name={name}
                 />
                 <hr />
               </label>
@@ -171,32 +175,30 @@ const Page = () => {
         </div>
 
         {options !== null && (
-          <DisplayOptions
+          <DisplayWeight
             options={options[0]}
-            optionIdx={foodIdx}
-            setOptionIdx={setFoodIdx}
-            selectedOption={selectedOption.selectedOption}
+            selectedOptionItem={selectedOption}
             onValueChange={onValueChange}
             categoryId={0}
+            name={`weight`}
           />
         )}
 
-        {/* {options !== null && options.length > 1 && (
-          <DisplayOptions
+        {options !== null && options.length > 1 && (
+          <DisplayWeight
             options={options[1]}
-            optionIdx={extraIdx}
-            setOptionIdx={setExtraIdx}
-            selectedOption={selectedOption.selectedOption}
+            selectedOptionItem={selectedExtraItem}
             onValueChange={onValueChange}
             categoryId={1}
+            name={`extraItem`}
           />
-        )} */}
+        )}
 
         {/* {options !== null && options.length > 2 && (
-          <DisplayOptions
+          <DisplayWeight
             options={options[2]}
-            optionIdx={extraItemIdx}
-            setOptionIdx={setExtraItemIdx}
+            // optionIdx={extraItemIdx}
+            // setOptionIdx={setExtraItemIdx}
             selectedOption={selectedOption.selectedOption}
             onValueChange={onValueChange}
             categoryId={2}
@@ -222,7 +224,7 @@ const Page = () => {
                 <path d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path>
               </svg>
             </button>
-            <button onClick={() => inc(foodInfo, item)} className="toggli">
+            <button onClick={() => inc(foodInfo)} className="toggli">
               <svg
                 stroke="currentColor"
                 fill="currentColor"
@@ -241,7 +243,7 @@ const Page = () => {
             </button>
             <span className="title_pirce">soni {count}</span>
           </div>
-          <span>{optionPrice} so'm</span>
+          <span>{totalPrice} so'm</span>
         </div>
         <button
           disabled={count < 1}

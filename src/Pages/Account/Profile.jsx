@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaUser } from "react-icons/fa";
 
 import Input from "../../components/Input/Input";
-import { useGlobalContext } from "../../context";
 import Button from "../../components/Button/Button";
 import Logout from "../../components/ModalWindows/Logout/Logout";
 import { updateUserInfo } from "../../Store/Thunk";
@@ -14,13 +13,13 @@ import "./Profile.scss";
 
 const Profile = () => {
   const state = useSelector((state) => state.UserReducer);
-  const { isLogoutOpen, setLogoutOpen } = useGlobalContext();
   const dispatch = useDispatch();
 
   const [name, setName] = useState("");
   const [lName, setLName] = useState("");
   const [date, setDate] = useState("");
   const [isLoading, setLoading] = useState(true);
+  const [isLogoutOpen, setLogoutOpen] = useState(false);
 
   const fetchUserInfo = async () => {
     const userAccountInfo = "/user/account";
@@ -107,7 +106,7 @@ const Profile = () => {
       <br />
       <br />
       {/* Logout pop up window */}
-      {isLogoutOpen ? <Logout /> : null}
+      {isLogoutOpen ? <Logout setLogoutOpen={setLogoutOpen} /> : null}
     </div>
   );
 };

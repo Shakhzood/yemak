@@ -116,11 +116,13 @@ const loadingFalse = (state) => {
 };
 
 const incrementItemCount = (state, fullPrice) => {
+  // console.log(1, fullPrice);
   return {
     ...state,
     items_count: {
+      ...state.items_count,
       count: state.items_count.count + 1,
-      price: (state.items_count.price += fullPrice),
+      price: ++state.items_count.count * fullPrice,
       // totalCount: state.items_count.totalCount + 1,
     },
   };
@@ -130,6 +132,7 @@ const decrementItemCount = (state, fullPrice) => {
   return {
     ...state,
     items_count: {
+      ...state.items_count,
       count: state.items_count.count - 1,
       price: (state.items_count.price -= fullPrice),
       // totalCount: state.items_count.totalCount + 1,
@@ -234,12 +237,15 @@ const closeModal = (state, closeModalType) => {
   };
 };
 
-const updateOptionsPrice = (state, price) => {
+const updateOptionsPrice = (state, totalPrice) => {
+  // const { originalPrice, kgPrice, extraProductsPrice, dishPrice } = priceObj;
+  // console.log("1", totalPrice);
+
   return {
     ...state,
     items_count: {
       ...state.items_count,
-      price: state.items_count.count * price,
+      price: state.items_count.count * totalPrice,
     },
   };
 };

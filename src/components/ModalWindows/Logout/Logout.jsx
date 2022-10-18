@@ -3,14 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { GrClose } from "react-icons/gr";
 
-import { useGlobalContext } from "../../../context";
 import Button from "../../Button/Button";
 import { loggingout } from "../../../Store/Thunk";
 
 import "./Logout.scss";
 
-const Logout = () => {
-  const { setLogoutOpen } = useGlobalContext();
+const Logout = ({ setLogoutOpen }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
